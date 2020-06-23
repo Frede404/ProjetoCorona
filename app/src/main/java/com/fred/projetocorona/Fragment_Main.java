@@ -29,6 +29,10 @@ public class Fragment_Main extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_main);
+
         view.findViewById(R.id.B_perfis).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +67,11 @@ public class Fragment_Main extends Fragment {
 
     private void Exit() {
         getActivity().finish();
+    }
+
+    public void About(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Main.this);
+        navController.navigate(R.id.action_Main_to_About);
     }
 
 }

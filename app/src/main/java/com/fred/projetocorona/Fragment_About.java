@@ -28,5 +28,14 @@ public class Fragment_About extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_about);
+    }
+
+    public void Voltar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_About.this);
+        navController.navigate(R.id.action_About_to_Main);
     }
 }
