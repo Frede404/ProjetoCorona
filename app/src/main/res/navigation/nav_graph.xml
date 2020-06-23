@@ -91,6 +91,9 @@
         <action
             android:id="@+id/action_Registo_to_Informacoes"
             app:destination="@id/fragment_Informacoes" />
+        <action
+            android:id="@+id/action_Registo_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Historico_Testes"
@@ -100,6 +103,9 @@
         <action
             android:id="@+id/action_Historico_Testes_to_Teste"
             app:destination="@id/fragment_Teste" />
+        <action
+            android:id="@+id/action_Historico_Testes_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Teste"
@@ -115,6 +121,9 @@
         <action
             android:id="@+id/action_Teste_to_Novo_Teste"
             app:destination="@id/fragment_Novo_Teste" />
+        <action
+            android:id="@+id/action_Teste_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Historico_Registos"
@@ -124,6 +133,9 @@
         <action
             android:id="@+id/action_Historico_Registos_to_Informacoes"
             app:destination="@id/fragment_Informacoes" />
+        <action
+            android:id="@+id/action_Historico_Registos_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Novo_Teste"
@@ -133,5 +145,8 @@
         <action
             android:id="@+id/action_Novo_Teste_to_Teste"
             app:destination="@id/fragment_Teste" />
+        <action
+            android:id="@+id/action_Novo_Teste_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
 </navigation>

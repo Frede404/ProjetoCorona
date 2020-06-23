@@ -26,16 +26,6 @@ public class Fragment_Historico_Registos extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        /*view.findViewById(R.id.BPerfis).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Perfis();
-            }
-        });*/
     }
 
-    /*private void Perfis() {
-        NavController navController = NavHostFragment.findNavController(fragment_menu_principal.this);
-        navController.navigate(R.id.id_da_seta);
-    }*/
 }

@@ -14,30 +14,30 @@
         android:layout_marginBottom="16dp"
         android:text="@string/TextoTituloinformaces"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/B_Registo"
+        app:layout_constraintBottom_toTopOf="@+id/B_registo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/B_Registo"
+        android:id="@+id/B_registo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TextBregisto_diario"
-        app:layout_constraintBottom_toTopOf="@+id/B_estorico_registo"
+        app:layout_constraintBottom_toTopOf="@+id/B_historico_registo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titulo_Informacoes" />
 
     <Button
-        android:id="@+id/B_estorico_registo"
+        android:id="@+id/B_historico_registo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TextoBhistorico"
         app:layout_constraintBottom_toTopOf="@+id/B_testes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/B_Registo" />
+        app:layout_constraintTop_toBottomOf="@+id/B_registo" />
 
     <Button
         android:id="@+id/B_testes"
@@ -48,5 +48,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/B_estorico_registo" />
+        app:layout_constraintTop_toBottomOf="@+id/B_historico_registo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,7 +52,8 @@ public class Fragment_Main extends Fragment {
     }
 
     private void Perfis() {
-
+        NavController navController = NavHostFragment.findNavController(Fragment_Main.this);
+        navController.navigate(R.id.action_Main_to_Perfil);
     }
 
     private void Estatistica() {

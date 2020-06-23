@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,16 +29,38 @@ public class Fragment_Informacoes extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        /*view.findViewById(R.id.BPerfis).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.B_registo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Perfis();
+                RegistoDiario();
             }
-        });*/
+        });
+        view.findViewById(R.id.B_historico_registo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HistoricoRegistos();
+            }
+        });
+        view.findViewById(R.id.B_testes).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                VerTeste();
+            }
+        });
     }
 
-    /*private void Perfis() {
-        NavController navController = NavHostFragment.findNavController(fragment_menu_principal.this);
-        navController.navigate(R.id.id_da_seta);
-    }*/
+    private void RegistoDiario() {
+        NavController navController = NavHostFragment.findNavController(Fragment_Informacoes.this);
+        navController.navigate(R.id.action_Informacoes_to_Registo);
+    }
+
+    private void HistoricoRegistos() {
+        NavController navController = NavHostFragment.findNavController(Fragment_Informacoes.this);
+        navController.navigate(R.id.action_Informacoes_to_Historico_Registos);
+    }
+
+    private void VerTeste() {
+        NavController navController = NavHostFragment.findNavController(Fragment_Informacoes.this);
+        navController.navigate(R.id.action_Informacoes_to_Teste);
+    }
 }
