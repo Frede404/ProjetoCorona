@@ -34,4 +34,12 @@
     <string name="Textodata_do_teste">Data do Teste (dd/mm/yyyy)</string>
     <string name="Textodata_do_resultado">Data do Resultado (dd/mm/yyyy)</string>
     <string name="TextoTitulohistorico_testes">Histórico Testes</string>
+    <string name="TextoMenuadicionar">Adicionar</string>
+    <string name="TextoMenueditar">Editar</string>
+    <string name="TextoMenueliminar">Eliminar</string>
+    <string name="TextoMenuvoltar">Voltar</string>
+    <string name="TextoMenusobre">Sobre</string>
+    <string name="TextoMenucancelar">Cancelar</string>
+    <string name="TextoMenuguardar">Guardar</string>
+    <string name="TextoMenuhome">Home</string>
 </resources>

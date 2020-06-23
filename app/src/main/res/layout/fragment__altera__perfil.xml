@@ -13,10 +13,39 @@
         android:layout_marginTop="8dp"
         android:text="@string/TextoTituloaltera_perfil"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/TIL_altera_nome"
+        app:layout_constraintBottom_toTopOf="@+id/TV_Nome_antigo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TV_Nome_antigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Nome a alterar"
+        app:layout_constraintBottom_toTopOf="@+id/TV_data_antiga"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo_Altera_Perfil" />
+
+    <TextView
+        android:id="@+id/TV_data_antiga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Data a alterar"
+        app:layout_constraintBottom_toTopOf="@+id/TIL_altera_nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Nome_antigo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TIL_altera_nome"
@@ -29,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@+id/TIL_altera_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo_Altera_Perfil">
+        app:layout_constraintTop_toBottomOf="@+id/TV_data_antiga">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/TIET_altera_nome"

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_Main_to_Perfil"
             app:destination="@id/fragment_Perfil" />
+        <action
+            android:id="@+id/action_Main_to_About"
+            app:destination="@id/fragment_About" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Estatistica"
@@ -148,5 +151,14 @@
         <action
             android:id="@+id/action_Novo_Teste_to_Perfil"
             app:destination="@id/fragment_Perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_About"
+        android:name="com.fred.projetocorona.Fragment_About"
+        android:label="fragment__about"
+        tools:layout="@layout/fragment__about" >
+        <action
+            android:id="@+id/action_About_to_Main"
+            app:destination="@id/fragment_Main" />
     </fragment>
 </navigation>
