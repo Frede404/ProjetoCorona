@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">ProjetoCorona</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="TextoBperfis">Perfis</string>
+    <string name="TextoBestatisticas">Estatisticas</string>
+    <string name="TextoBsair">Sair</string>
+    <string name="TextoTituloestatisticas">Estatisticas</string>
+    <string name="TextoTVinformacao">Informacao</string>
+    <string name="TextoTituloperfis">Perfis</string>
+    <string name="TextoTitulonovo_perfil">Novo Perfil</string>
+    <string name="Textonome">Nome</string>
+    <string name="Textodata_nascimento">Data de Nascimento (dd/mm/yyyy)</string>
+    <string name="Textodiabetes">Diabetes</string>
+    <string name="Textoproblemas_saude">Problemas Saude</string>
+    <string name="Textohipertencao">Hipertenção</string>
+    <string name="Textooncologicos">Oncologicos</string>
+    <string name="Textosis_imunitario">Sis. Imunitário</string>
+    <string name="Textocardiovascular">Cardiovascular</string>
+    <string name="Textorespiratorios">Respiratórios</string>
+    <string name="TextoTituloinformaces">Informações</string>
+    <string name="TextBregisto_diario">Registo Diário</string>
+    <string name="TextoBhistorico">Historico</string>
+    <string name="TextoBtestes">Testes</string>
+    <string name="TextoTituloaltera_perfil">Altera Perfil</string>
+    <string name="TextoTituloregisto_diario">Registo Diario</string>
+    <string name="Textotemperatura">Temperatura</string>
+    <string name="Textodificuldade_em_respirar">Dificuldade em Respirar</string>
+    <string name="Textotosse">Tosse</string>
+    <string name="TextoTitulohistorico_de_registos">Histórico de Registos</string>
+    <string name="TextoTitulotestes">Testes</string>
+    <string name="TextoBhistorico_testes">Histórico</string>
+    <string name="TextoTitulonovo_teste">Novo Teste</string>
+    <string name="Textodata_do_teste">Data do Teste (dd/mm/yyyy)</string>
+    <string name="Textodata_do_resultado">Data do Resultado (dd/mm/yyyy)</string>
+    <string name="TextoTitulohistorico_testes">Histórico Testes</string>
 </resources>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_Novo_perfil" >
+
+    <TextView
+        android:id="@+id/Titulo_Novo_Perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/TextoTitulonovo_perfil"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/TIL_novo_nome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_novo_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/TIL_nova_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo_Novo_Perfil">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TIET_novo_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Textonome" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_nova_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIL_novo_nome">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TIET_nova_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Textodata_nascimento" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIL_nova_data">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Texto_N_Problemas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textoproblemas_saude" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/CB_novo_diabetes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textodiabetes" />
+
+            <CheckBox
+                android:id="@+id/CB_novo_respiratorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textorespiratorios" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/CB_novo_hipertensao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textohipertencao" />
+
+            <CheckBox
+                android:id="@+id/CB_novo_oncologicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textooncologicos" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/CB_novo_cardiovascular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textocardiovascular" />
+
+            <CheckBox
+                android:id="@+id/CB_novo_sistema_imunitario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Textosis_imunitario" />
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

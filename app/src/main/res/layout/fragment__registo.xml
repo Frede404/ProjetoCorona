@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_Registo" >
+
+    <TextView
+        android:id="@+id/Titulo_Registo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/TextoTituloregisto_diario"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/TV_data_actual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TV_data_actual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dia do Registo:"
+        app:layout_constraintBottom_toTopOf="@+id/TIL_temperatura"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo_Registo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_temperatura"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/CB_tosse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_data_actual">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TIET_temperatura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Textotemperatura" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/CB_tosse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Textotosse"
+        app:layout_constraintBottom_toTopOf="@+id/CB_dif_respirar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIL_temperatura" />
+
+    <CheckBox
+        android:id="@+id/CB_dif_respirar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Textodificuldade_em_respirar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CB_tosse" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

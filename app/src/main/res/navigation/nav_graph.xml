@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_Main">
+
+    <fragment
+        android:id="@+id/fragment_Main"
+        android:name="com.fred.projetocorona.Fragment_Main"
+        android:label="fragment__main"
+        tools:layout="@layout/fragment__main" >
+        <action
+            android:id="@+id/action_Main_to_Estatistica"
+            app:destination="@id/fragment_Estatistica" />
+        <action
+            android:id="@+id/action_Main_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Estatistica"
+        android:name="com.fred.projetocorona.Fragment_Estatistica"
+        android:label="fragment__estatistica"
+        tools:layout="@layout/fragment__estatistica" >
+        <action
+            android:id="@+id/action_Estatistica_to_Main"
+            app:destination="@id/fragment_Main" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Perfil"
+        android:name="com.fred.projetocorona.Fragment_Perfil"
+        android:label="fragment__perfil"
+        tools:layout="@layout/fragment__perfil" >
+        <action
+            android:id="@+id/action_Perfil_to_Main"
+            app:destination="@id/fragment_Main" />
+        <action
+            android:id="@+id/action_Perfil_to_Novo_perfil"
+            app:destination="@id/fragment_Novo_perfil" />
+        <action
+            android:id="@+id/action_Perfil_to_Altera_Perfil"
+            app:destination="@id/fragment_Altera_Perfil" />
+        <action
+            android:id="@+id/action_Perfil_to_Informacoes"
+            app:destination="@id/fragment_Informacoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Novo_perfil"
+        android:name="com.fred.projetocorona.Fragment_Novo_perfil"
+        android:label="fragment__novo_perfil"
+        tools:layout="@layout/fragment__novo_perfil" >
+        <action
+            android:id="@+id/action_Novo_perfil_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
+        <action
+            android:id="@+id/action_Novo_perfil_to_Informacoes"
+            app:destination="@id/fragment_Informacoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Altera_Perfil"
+        android:name="com.fred.projetocorona.Fragment_Altera_Perfil"
+        android:label="fragment__altera__perfil"
+        tools:layout="@layout/fragment__altera__perfil" >
+        <action
+            android:id="@+id/action_Altera_Perfil_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Informacoes"
+        android:name="com.fred.projetocorona.Fragment_Informacoes"
+        android:label="fragment__informacoes"
+        tools:layout="@layout/fragment__informacoes" >
+        <action
+            android:id="@+id/action_Informacoes_to_Perfil"
+            app:destination="@id/fragment_Perfil" />
+        <action
+            android:id="@+id/action_Informacoes_to_Registo"
+            app:destination="@id/fragment_Registo" />
+        <action
+            android:id="@+id/action_Informacoes_to_Teste"
+            app:destination="@id/fragment_Teste" />
+        <action
+            android:id="@+id/action_Informacoes_to_Historico_Registos"
+            app:destination="@id/fragment_Historico_Registos" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Registo"
+        android:name="com.fred.projetocorona.Fragment_Registo"
+        android:label="fragment__registo"
+        tools:layout="@layout/fragment__registo" >
+        <action
+            android:id="@+id/action_Registo_to_Informacoes"
+            app:destination="@id/fragment_Informacoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Historico_Testes"
+        android:name="com.fred.projetocorona.Fragment_Historico_Testes"
+        android:label="fragment__historico__testes"
+        tools:layout="@layout/fragment__historico__testes" >
+        <action
+            android:id="@+id/action_Historico_Testes_to_Teste"
+            app:destination="@id/fragment_Teste" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Teste"
+        android:name="com.fred.projetocorona.Fragment_Teste"
+        android:label="fragment__teste"
+        tools:layout="@layout/fragment__teste" >
+        <action
+            android:id="@+id/action_Teste_to_Informacoes"
+            app:destination="@id/fragment_Informacoes" />
+        <action
+            android:id="@+id/action_Teste_to_Historico_Testes"
+            app:destination="@id/fragment_Historico_Testes" />
+        <action
+            android:id="@+id/action_Teste_to_Novo_Teste"
+            app:destination="@id/fragment_Novo_Teste" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Historico_Registos"
+        android:name="com.fred.projetocorona.Fragment_Historico_Registos"
+        android:label="fragment__historico__registos"
+        tools:layout="@layout/fragment__historico__registos" >
+        <action
+            android:id="@+id/action_Historico_Registos_to_Informacoes"
+            app:destination="@id/fragment_Informacoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Novo_Teste"
+        android:name="com.fred.projetocorona.Fragment_Novo_Teste"
+        android:label="fragment__novo__teste"
+        tools:layout="@layout/fragment__novo__teste" >
+        <action
+            android:id="@+id/action_Novo_Teste_to_Teste"
+            app:destination="@id/fragment_Teste" />
+    </fragment>
+</navigation>
