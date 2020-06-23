@@ -29,6 +29,10 @@ public class Fragment_Informacoes extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_informacao_perfil);
+
         view.findViewById(R.id.B_registo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,5 +66,10 @@ public class Fragment_Informacoes extends Fragment {
     private void VerTeste() {
         NavController navController = NavHostFragment.findNavController(Fragment_Informacoes.this);
         navController.navigate(R.id.action_Informacoes_to_Teste);
+    }
+
+    public void Voltar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Informacoes.this);
+        navController.navigate(R.id.action_Informacoes_to_Perfil);
     }
 }

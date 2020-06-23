@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_Novo_Teste_to_Perfil"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/TextoMenuhome"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_Teste_to_Novo_Teste"
         android:icon="@drawable/ic_baseline_save_24"
         android:title="@string/TextoMenuguardar"
@@ -12,12 +18,6 @@
         android:id="@+id/action_Novo_Teste_to_Teste"
         android:icon="@drawable/ic_baseline_cancel_24"
         android:title="@string/TextoMenucancelar"
-        android:visible="true"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_Novo_Teste_to_Perfil"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/TextoMenuhome"
         android:visible="true"
         app:showAsAction="ifRoom" />
 </menu>

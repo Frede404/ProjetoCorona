@@ -122,11 +122,11 @@
             android:id="@+id/action_Teste_to_Historico_Testes"
             app:destination="@id/fragment_Historico_Testes" />
         <action
-            android:id="@+id/action_Teste_to_Novo_Teste"
-            app:destination="@id/fragment_Novo_Teste" />
-        <action
             android:id="@+id/action_Teste_to_Perfil"
             app:destination="@id/fragment_Perfil" />
+        <action
+            android:id="@+id/action_Teste_to_Novo_Teste"
+            app:destination="@id/fragment_Novo_Teste" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Historico_Registos"

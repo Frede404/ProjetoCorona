@@ -28,6 +28,10 @@ public class Fragment_Perfil extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_perfil);
+
         view.findViewById(R.id.B_informacao).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,5 +43,25 @@ public class Fragment_Perfil extends Fragment {
     private void Informacao() {
         NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
         navController.navigate(R.id.action_Perfil_to_Informacoes);
+    }
+
+
+    public void Voltar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
+        navController.navigate(R.id.action_Perfil_to_Main);
+    }
+
+    public void Adicionar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
+        navController.navigate(R.id.action_Perfil_to_Novo_perfil);
+    }
+
+    public void Editar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
+        navController.navigate(R.id.action_Perfil_to_Altera_Perfil);
+    }
+
+    public void Eliminar(){
+        //eliminar
     }
 }

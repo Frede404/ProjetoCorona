@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,16 +29,22 @@ public class Fragment_Registo extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        /*view.findViewById(R.id.BPerfis).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Perfis();
-            }
-        });*/
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_registo);
     }
 
-    /*private void Perfis() {
-        NavController navController = NavHostFragment.findNavController(fragment_menu_principal.this);
-        navController.navigate(R.id.id_da_seta);
-    }*/
+    public void Guardar(){
+        Cancelar();
+    }
+
+    public void Cancelar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Registo.this);
+        navController.navigate(R.id.action_Registo_to_Informacoes);
+    }
+
+    public void Home(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Registo.this);
+        navController.navigate(R.id.action_Registo_to_Perfil);
+    }
 }

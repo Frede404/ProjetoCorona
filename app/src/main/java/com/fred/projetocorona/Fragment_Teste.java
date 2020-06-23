@@ -27,6 +27,10 @@ public class Fragment_Teste extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
+        MainActivity activity = (MainActivity) getActivity();
+        activity.setFragmentActual(this);
+        activity.setMenuActual(R.menu.menu_teste);
+
         view.findViewById(R.id.B_historico_testes).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,5 +42,20 @@ public class Fragment_Teste extends Fragment {
     private void HistoricoTestes() {
         NavController navController = NavHostFragment.findNavController(Fragment_Teste.this);
         navController.navigate(R.id.action_Teste_to_Historico_Testes);
+    }
+
+    public void Adicionar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Teste.this);
+        navController.navigate(R.id.action_Teste_to_Novo_Teste);
+    }
+
+    public void Voltar(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Teste.this);
+        navController.navigate(R.id.action_Teste_to_Informacoes);
+    }
+
+    public void Home(){
+        NavController navController = NavHostFragment.findNavController(Fragment_Teste.this);
+        navController.navigate(R.id.action_Teste_to_Perfil);
     }
 }
