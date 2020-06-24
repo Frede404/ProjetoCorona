@@ -10,8 +10,6 @@ public class PerfilPessoa {
     private boolean Hipertenso;
     private boolean POncologicos;
     private boolean SisEmunitario;
-    private float Altura;
-    private float Peso;
 
     public long getId() {
         return id;
@@ -83,21 +81,5 @@ public class PerfilPessoa {
 
     public void setSisEmunitario(boolean sisEmunitario) {
         SisEmunitario = sisEmunitario;
-    }
-
-    public float getAltura() {
-        return Altura;
-    }
-
-    public void setAltura(float altura) {
-        Altura = altura;
-    }
-
-    public float getPeso() {
-        return Peso;
-    }
-
-    public void setPeso(float peso) {
-        Peso = peso;
     }
 }

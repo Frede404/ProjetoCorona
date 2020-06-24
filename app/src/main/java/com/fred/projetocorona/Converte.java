@@ -15,8 +15,6 @@ public class Converte {
         valores.put(BDTabelaPerfis.HIPERTENSAO, perfil.isHipertenso());
         valores.put(BDTabelaPerfis.PONCOLOGICOS, perfil.isPOncologicos());
         valores.put(BDTabelaPerfis.SIS_EMUNITARIO, perfil.isSisEmunitario());
-        valores.put(BDTabelaPerfis.ALTURA,perfil.getAltura());
-        valores.put(BDTabelaPerfis.PESO,perfil.getPeso());
 
         return valores;
     }
@@ -33,8 +31,6 @@ public class Converte {
         perfil.setHipertenso(valores.getAsBoolean(BDTabelaPerfis.HIPERTENSAO));
         perfil.setPOncologicos(valores.getAsBoolean(BDTabelaPerfis.PONCOLOGICOS));
         perfil.setSisEmunitario(valores.getAsBoolean(BDTabelaPerfis.SIS_EMUNITARIO));
-        perfil.setAltura(valores.getAsFloat(BDTabelaPerfis.ALTURA));
-        perfil.setPeso(valores.getAsFloat(BDTabelaPerfis.PESO));
 
         return perfil;
     }
@@ -51,8 +47,6 @@ public class Converte {
         perfil.setHipertenso(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.HIPERTENSAO)));
         perfil.setPOncologicos(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.PONCOLOGICOS)));
         perfil.setSisEmunitario(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.SIS_EMUNITARIO)));
-        perfil.setAltura(cursor.getFloat(cursor.getColumnIndex(BDTabelaPerfis.ALTURA)));
-        perfil.setPeso(cursor.getFloat(cursor.getColumnIndex(BDTabelaPerfis.PESO)));
 
         return perfil;
     }

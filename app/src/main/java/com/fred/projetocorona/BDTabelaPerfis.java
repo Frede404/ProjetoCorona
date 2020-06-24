@@ -19,8 +19,6 @@ public class BDTabelaPerfis implements BaseColumns {
     public static final String HIPERTENSAO = "hipertensao";
     public static final String PONCOLOGICOS = "prob_oncologicos";
     public static final String SIS_EMUNITARIO = "sis_emunitario";
-    public static final String ALTURA = "altura";
-    public static final String PESO = "peso";
 
     private SQLiteDatabase db;
 
@@ -33,8 +31,6 @@ public class BDTabelaPerfis implements BaseColumns {
     public static final String HIPERTENSAO_COMPLETO = NOME_TABELA + "." + HIPERTENSAO;
     public static final String PONCOLOGICOS_COMPLETO = NOME_TABELA + "." + PONCOLOGICOS;
     public static final String SIS_EMUNITARIO_COMPLETO = NOME_TABELA + "." + SIS_EMUNITARIO;
-    public static final String ALTURA_COMPLETO = NOME_TABELA + "." + ALTURA;
-    public static final String PESO_COMPLETO = NOME_TABELA + "." + PESO;
 
     public BDTabelaPerfis(SQLiteDatabase db){
         this.db = db;
@@ -50,9 +46,7 @@ public class BDTabelaPerfis implements BaseColumns {
                 PRESPIRATORIOS + " BOOLEAN NOT NULL, " +
                 HIPERTENSAO + " BOOLEAN NOT NULL, " +
                 PONCOLOGICOS + " BOOLEAN NOT NULL, " +
-                SIS_EMUNITARIO + " BOOLEAN NOT NULL, " +
-                ALTURA + " REAL, " +
-                PESO + " REAL " + ")"
+                SIS_EMUNITARIO + " BOOLEAN NOT NULL " + ")"
                 );
     }
 

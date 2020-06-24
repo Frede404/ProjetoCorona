@@ -71,14 +71,14 @@ public class BDContentProvider extends ContentProvider {
                 return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[] { id }, null, null, sortOrder);
 
             case URI_REGISTOS:
-                return new BDTabelaPerfis(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new BDTabelaRegisto(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
             case URI_ID_REGISTO:
-                return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[]{id},null, null, sortOrder);
+                return new BDTabelaRegisto(bd).query(projection, BDTabelaRegisto._ID + "=?", new String[]{id},null, null, sortOrder);
 
             case URI_TESTES:
-                return new BDTabelaPerfis(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
+                return new BDTabelaTestes(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
             case URI_ID_TESTE:
-                return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[]{id},null, null, sortOrder);
+                return new BDTabelaTestes(bd).query(projection, BDTabelaTestes._ID + "=?", new String[]{id},null, null, sortOrder);
 
             default:
                 throw new UnsupportedOperationException("Endereço query inválido: " + uri.getPath());
@@ -121,10 +121,10 @@ public class BDContentProvider extends ContentProvider {
                 id = (new BDTabelaPerfis(bd).insert(values));
                 break;
             case URI_REGISTOS:
-                id = (new BDTabelaPerfis(bd).insert(values));
+                id = (new BDTabelaRegisto(bd).insert(values));
                 break;
             case URI_TESTES:
-                id = (new BDTabelaPerfis(bd).insert(values));
+                id = (new BDTabelaTestes(bd).insert(values));
                 break;
 
             default:
@@ -148,9 +148,9 @@ public class BDContentProvider extends ContentProvider {
             case URI_ID_PERFIS:
                 return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
             case URI_ID_REGISTO:
-                return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
+                return new BDTabelaRegisto(bd).delete(BDTabelaRegisto._ID + "=?", new String[]{id});
             case URI_ID_TESTE:
-                return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
+                return new BDTabelaTestes(bd).delete(BDTabelaTestes._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Endereço delete inválido: " + uri.getPath());
@@ -167,9 +167,9 @@ public class BDContentProvider extends ContentProvider {
             case URI_ID_PERFIS:
                 return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[] { id });
             case URI_ID_REGISTO:
-                return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[]{id});
+                return new BDTabelaRegisto(bd).update(values, BDTabelaRegisto._ID + "=?", new String[]{id});
             case URI_ID_TESTE:
-                return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[]{id});
+                return new BDTabelaTestes(bd).update(values, BDTabelaTestes._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Endereço de update inválido: " + uri.getPath());
