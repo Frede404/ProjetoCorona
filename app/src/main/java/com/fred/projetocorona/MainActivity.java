@@ -12,11 +12,21 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragmentActual = null;
     private int menuActual = R.menu.menu_main;
     private Menu menu;
+    PerfilPessoa perfil = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void PerfilAlterado(PerfilPessoa perfil){
+        this.perfil = perfil;
+
+        boolean mostraEditarEliminar = (perfil != null);
+
+        menu.findItem(R.id.action_eliminar_perfil).setVisible(mostraEditarEliminar);
+        menu.findItem(R.id.action_Perfil_to_Altera_Perfil).setVisible(mostraEditarEliminar);
     }
 
     public void setFragmentActual(Fragment fragmentActual){
@@ -192,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.action_Perfil_to_Altera_Perfil){
             fragmento_destino.Editar();
             return true;
-        }else if(id == R.id.action_eliminar){
+        }else if(id == R.id.action_eliminar_perfil){
             fragmento_destino.Eliminar();
             return true;
         }
