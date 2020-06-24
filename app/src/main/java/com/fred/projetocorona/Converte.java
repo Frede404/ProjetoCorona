@@ -56,4 +56,63 @@ public class Converte {
 
         return perfil;
     }
+
+    public static ContentValues registoParaContentValues(Registos registo){
+        ContentValues values = new ContentValues();
+        values.put(BDTabelaRegisto.TEMPERATURA, registo.getTemperatura());
+        values.put(BDTabelaRegisto.TOSSE, registo.isTosse());
+        values.put(BDTabelaRegisto.FADIGA, registo.isFadiga());
+        return values;
+    }
+    public static Registos contentValuesParaRegisto(ContentValues values){
+        Registos registo = new Registos();
+
+        registo.setId(values.getAsLong(BDTabelaRegisto._ID));
+        registo.setTemperatura(values.getAsFloat(BDTabelaRegisto.TEMPERATURA));
+        registo.setTosse(values.getAsBoolean(BDTabelaRegisto.TOSSE));
+        registo.setFadiga(values.getAsBoolean(BDTabelaRegisto.FADIGA));
+
+
+        return registo;
+    }
+
+    public static Registos cursorParaRegisto(Cursor cursor){
+        Registos registo = new Registos();
+        registo.setId(cursor.getLong(cursor.getColumnIndex(BDTabelaRegisto._ID)));
+        registo.setData(cursor.getString(cursor.getColumnIndex(BDTabelaRegisto.DATA)));
+        registo.setTemperatura(cursor.getFloat(cursor.getColumnIndex(String.valueOf(BDTabelaRegisto.TEMPERATURA))));
+        registo.setTosse(cursor.isNull(cursor.getColumnIndex(BDTabelaRegisto.TOSSE)));
+        registo.setFadiga(cursor.isNull(cursor.getColumnIndex(BDTabelaRegisto.FADIGA)));
+
+        return registo;
+    }
+
+    public static ContentValues testeParaContentValues(Testes teste){
+        ContentValues values = new ContentValues();
+
+        values.put(BDTabelaTestes.DATA_TESTE, teste.getData_teste());
+        values.put(BDTabelaTestes.DATA_RESULTADO, teste.getResultado());
+        values.put(BDTabelaTestes.RESULTADO, teste.getResultado());
+
+        return values;
+    }
+    public static Testes contentValuesParaTeste(ContentValues values){
+        Testes teste = new Testes();
+        teste.setId(values.getAsLong(BDTabelaTestes._ID));
+        teste.setData_teste(values.getAsString(BDTabelaTestes.DATA_TESTE));
+        teste.setData_resultado(values.getAsString(BDTabelaTestes.DATA_RESULTADO));
+        teste.setResultado(values.getAsString(BDTabelaTestes.RESULTADO));
+
+        return teste;
+    }
+
+    public static Testes cursorParaTeste(Cursor cursor){
+        Testes teste = new Testes();
+        teste.setId(cursor.getLong(cursor.getColumnIndex(BDTabelaTestes._ID)));
+        teste.setData_teste(cursor.getString(cursor.getColumnIndex(BDTabelaTestes.DATA_TESTE)));
+        teste.setData_resultado(cursor.getString(cursor.getColumnIndex((BDTabelaTestes.DATA_RESULTADO))));
+        teste.setResultado(cursor.getString(cursor.getColumnIndex(BDTabelaTestes.RESULTADO)));
+
+        return teste;
+    }
 }

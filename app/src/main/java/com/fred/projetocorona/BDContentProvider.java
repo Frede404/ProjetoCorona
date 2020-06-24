@@ -14,12 +14,20 @@ import androidx.annotation.Nullable;
 public class BDContentProvider extends ContentProvider {
     private static final String AUTHORITY = "com.fred.projetocorona";
     private static final String PERFIS = "perfis";
+    public static final String REGISTOS = "registos";
+    public static final String TESTES = "testes";
 
     private static final Uri ENDERECO_BASE = Uri.parse("content://" + AUTHORITY);
     public static final Uri ENDERECO_PERFIS = Uri.withAppendedPath(ENDERECO_BASE, PERFIS);
+    public static final Uri ENDERECO_REGISTOS = Uri.withAppendedPath(ENDERECO_BASE, REGISTOS);
+    public static final Uri ENDERECO_TESTES = Uri.withAppendedPath(ENDERECO_BASE, TESTES);
 
     private static final int URI_PERFIS = 100;
     private static final int URI_ID_PERFIS = 101;
+    public static final int URI_REGISTOS = 200;
+    public static final int URI_ID_REGISTO = 201;
+    public static final int URI_TESTES = 300;
+    public static final int URI_ID_TESTE = 301;
 
     private static final String CURSOR_DIR = "vnd.android.cursor.dir/";
     private static final String CURSOR_ITEM = "vnd.android.cursor.item/";
@@ -31,6 +39,12 @@ public class BDContentProvider extends ContentProvider {
 
         uriMatcher.addURI(AUTHORITY, PERFIS, URI_PERFIS);
         uriMatcher.addURI(AUTHORITY, PERFIS + "/#", URI_ID_PERFIS);
+
+        uriMatcher.addURI(AUTHORITY, REGISTOS, URI_REGISTOS);
+        uriMatcher.addURI(AUTHORITY, REGISTOS + "/#", URI_ID_REGISTO);
+
+        uriMatcher.addURI(AUTHORITY,TESTES, URI_TESTES);
+        uriMatcher.addURI(AUTHORITY,TESTES + "/#", URI_ID_TESTE);
 
         return uriMatcher;
     }
@@ -56,6 +70,16 @@ public class BDContentProvider extends ContentProvider {
             case URI_ID_PERFIS:
                 return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[] { id }, null, null, sortOrder);
 
+            case URI_REGISTOS:
+                return new BDTabelaPerfis(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
+            case URI_ID_REGISTO:
+                return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[]{id},null, null, sortOrder);
+
+            case URI_TESTES:
+                return new BDTabelaPerfis(bd).query(projection, selection, selectionArgs, null, null, sortOrder);
+            case URI_ID_TESTE:
+                return new BDTabelaPerfis(bd).query(projection, BDTabelaPerfis._ID + "=?", new String[]{id},null, null, sortOrder);
+
             default:
                 throw new UnsupportedOperationException("Endereço query inválido: " + uri.getPath());
         }
@@ -71,6 +95,14 @@ public class BDContentProvider extends ContentProvider {
                 return CURSOR_DIR + PERFIS;
             case URI_ID_PERFIS:
                 return CURSOR_ITEM + PERFIS;
+            case URI_REGISTOS:
+                return CURSOR_DIR + REGISTOS;
+            case URI_ID_REGISTO:
+                return CURSOR_ITEM + REGISTOS;
+            case URI_TESTES:
+                return CURSOR_DIR + TESTES;
+            case URI_ID_TESTE:
+                return CURSOR_ITEM + TESTES;
 
             default:
                 return null;
@@ -86,6 +118,12 @@ public class BDContentProvider extends ContentProvider {
 
         switch (getUriMatcher().match(uri)) {
             case URI_PERFIS:
+                id = (new BDTabelaPerfis(bd).insert(values));
+                break;
+            case URI_REGISTOS:
+                id = (new BDTabelaPerfis(bd).insert(values));
+                break;
+            case URI_TESTES:
                 id = (new BDTabelaPerfis(bd).insert(values));
                 break;
 
@@ -109,6 +147,10 @@ public class BDContentProvider extends ContentProvider {
         switch (getUriMatcher().match(uri)) {
             case URI_ID_PERFIS:
                 return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
+            case URI_ID_REGISTO:
+                return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
+            case URI_ID_TESTE:
+                return new BDTabelaPerfis(bd).delete(BDTabelaPerfis._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Endereço delete inválido: " + uri.getPath());
@@ -124,6 +166,10 @@ public class BDContentProvider extends ContentProvider {
         switch (getUriMatcher().match(uri)) {
             case URI_ID_PERFIS:
                 return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[] { id });
+            case URI_ID_REGISTO:
+                return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[]{id});
+            case URI_ID_TESTE:
+                return new BDTabelaPerfis(bd).update(values, BDTabelaPerfis._ID + "=?", new String[]{id});
 
             default:
                 throw new UnsupportedOperationException("Endereço de update inválido: " + uri.getPath());

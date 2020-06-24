@@ -25,7 +25,7 @@
     <string name="TextoTituloaltera_perfil">Altera Perfil</string>
     <string name="TextoTituloregisto_diario">Registo Diario</string>
     <string name="Textotemperatura">Temperatura</string>
-    <string name="Textodificuldade_em_respirar">Dificuldade em Respirar</string>
+    <string name="Textodificuldade_em_respirar">Fadiga</string>
     <string name="Textotosse">Tosse</string>
     <string name="TextoTitulohistorico_de_registos">Histórico de Registos</string>
     <string name="TextoTitulotestes">Testes</string>
