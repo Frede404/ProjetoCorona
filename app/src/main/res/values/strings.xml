@@ -11,7 +11,7 @@
     <string name="Textonome">Nome</string>
     <string name="Textodata_nascimento">Data de Nascimento (dd/mm/yyyy)</string>
     <string name="Textodiabetes">Diabetes</string>
-    <string name="Textoproblemas_saude">Problemas Saude</string>
+    <string name="Textoproblemas_saude">Problemas Saúde</string>
     <string name="Textohipertencao">Hipertenção</string>
     <string name="Textooncologicos">Oncologicos</string>
     <string name="Textosis_imunitario">Sis. Imunitário</string>
@@ -19,10 +19,10 @@
     <string name="Textorespiratorios">Respiratórios</string>
     <string name="TextoTituloinformaces">Informações</string>
     <string name="TextoBregisto_diario">Registo Diário</string>
-    <string name="TextoBhistorico">Historico</string>
+    <string name="TextoBhistorico">Histórico</string>
     <string name="TextoBtestes">Testes</string>
     <string name="TextoTituloaltera_perfil">Altera Perfil</string>
-    <string name="TextoTituloregisto_diario">Registo Diario</string>
+    <string name="TextoTituloregisto_diario">Registo Diário</string>
     <string name="Textotemperatura">Temperatura</string>
     <string name="Textodificuldade_em_respirar">Fadiga</string>
     <string name="Textotosse">Tosse</string>
