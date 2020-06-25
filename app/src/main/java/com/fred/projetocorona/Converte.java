@@ -4,17 +4,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Converte {
-    public static ContentValues PerfilToContentValues(PerfilPessoa perfil) {
+    public static ContentValues PerfilToContentValues(PerfilPessoa perfil) {//mandar para a base de daos
         ContentValues valores = new ContentValues();
 
         valores.put(BDTabelaPerfis.NOME, perfil.getNome());
         valores.put(BDTabelaPerfis.DATA_NASC, perfil.getDataNascimento());
-        valores.put(BDTabelaPerfis.CARDIOVASCULAR, perfil.isCardiovascular());
-        valores.put(BDTabelaPerfis.DIABETES, perfil.isDiabetes());
-        valores.put(BDTabelaPerfis.PRESPIRATORIOS, perfil.isPRespiratorios());
-        valores.put(BDTabelaPerfis.HIPERTENSAO, perfil.isHipertenso());
-        valores.put(BDTabelaPerfis.PONCOLOGICOS, perfil.isPOncologicos());
-        valores.put(BDTabelaPerfis.SIS_EMUNITARIO, perfil.isSisEmunitario());
+        valores.put(BDTabelaPerfis.CARDIOVASCULAR, perfil.getCardiovascular());
+        valores.put(BDTabelaPerfis.DIABETES, perfil.getDiabetes());
+        valores.put(BDTabelaPerfis.PRESPIRATORIOS, perfil.getPRespiratorios());
+        valores.put(BDTabelaPerfis.HIPERTENSAO, perfil.getHipertenso());
+        valores.put(BDTabelaPerfis.PONCOLOGICOS, perfil.getPOncologicos());
+        valores.put(BDTabelaPerfis.SIS_EMUNITARIO, perfil.getSisEmunitario());
 
         return valores;
     }
@@ -25,12 +25,12 @@ public class Converte {
         perfil.setId(valores.getAsLong(BDTabelaPerfis._ID));
         perfil.setNome(valores.getAsString(BDTabelaPerfis.NOME));
         perfil.setDataNascimento(valores.getAsString(BDTabelaPerfis.DATA_NASC));
-        perfil.setCardiovascular(valores.getAsBoolean(BDTabelaPerfis.CARDIOVASCULAR));
-        perfil.setDiabetes(valores.getAsBoolean(BDTabelaPerfis.DIABETES));
-        perfil.setPRespiratorios(valores.getAsBoolean(BDTabelaPerfis.PRESPIRATORIOS));
-        perfil.setHipertenso(valores.getAsBoolean(BDTabelaPerfis.HIPERTENSAO));
-        perfil.setPOncologicos(valores.getAsBoolean(BDTabelaPerfis.PONCOLOGICOS));
-        perfil.setSisEmunitario(valores.getAsBoolean(BDTabelaPerfis.SIS_EMUNITARIO));
+        perfil.setCardiovascular(valores.getAsInteger(BDTabelaPerfis.CARDIOVASCULAR));
+        perfil.setDiabetes(valores.getAsInteger(BDTabelaPerfis.DIABETES));
+        perfil.setPRespiratorios(valores.getAsInteger(BDTabelaPerfis.PRESPIRATORIOS));
+        perfil.setHipertenso(valores.getAsInteger(BDTabelaPerfis.HIPERTENSAO));
+        perfil.setPOncologicos(valores.getAsInteger(BDTabelaPerfis.PONCOLOGICOS));
+        perfil.setSisEmunitario(valores.getAsInteger(BDTabelaPerfis.SIS_EMUNITARIO));
 
         return perfil;
     }
@@ -41,12 +41,12 @@ public class Converte {
         perfil.setId(cursor.getLong(cursor.getColumnIndex(BDTabelaPerfis._ID)));
         perfil.setNome(cursor.getString(cursor.getColumnIndex(BDTabelaPerfis.NOME)));
         perfil.setDataNascimento(cursor.getString(cursor.getColumnIndex(BDTabelaPerfis.DATA_NASC)));
-        perfil.setCardiovascular(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.CARDIOVASCULAR)));
-        perfil.setDiabetes(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.DIABETES)));
-        perfil.setPRespiratorios(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.PRESPIRATORIOS)));
-        perfil.setHipertenso(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.HIPERTENSAO)));
-        perfil.setPOncologicos(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.PONCOLOGICOS)));
-        perfil.setSisEmunitario(cursor.isNull(cursor.getColumnIndex(BDTabelaPerfis.SIS_EMUNITARIO)));
+        perfil.setCardiovascular(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.CARDIOVASCULAR)));
+        perfil.setDiabetes(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.DIABETES)));
+        perfil.setPRespiratorios(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.PRESPIRATORIOS)));
+        perfil.setHipertenso(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.HIPERTENSAO)));
+        perfil.setPOncologicos(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.PONCOLOGICOS)));
+        perfil.setSisEmunitario(cursor.getInt(cursor.getColumnIndex(BDTabelaPerfis.SIS_EMUNITARIO)));
 
         return perfil;
     }
@@ -54,8 +54,8 @@ public class Converte {
     public static ContentValues registoParaContentValues(Registos registo){
         ContentValues values = new ContentValues();
         values.put(BDTabelaRegisto.TEMPERATURA, registo.getTemperatura());
-        values.put(BDTabelaRegisto.TOSSE, registo.isTosse());
-        values.put(BDTabelaRegisto.FADIGA, registo.isFadiga());
+        values.put(BDTabelaRegisto.TOSSE, registo.getTosse());
+        values.put(BDTabelaRegisto.FADIGA, registo.getFadiga());
         return values;
     }
     public static Registos contentValuesParaRegisto(ContentValues values){
@@ -63,8 +63,8 @@ public class Converte {
 
         registo.setId(values.getAsLong(BDTabelaRegisto._ID));
         registo.setTemperatura(values.getAsFloat(BDTabelaRegisto.TEMPERATURA));
-        registo.setTosse(values.getAsBoolean(BDTabelaRegisto.TOSSE));
-        registo.setFadiga(values.getAsBoolean(BDTabelaRegisto.FADIGA));
+        registo.setTosse(values.getAsInteger(BDTabelaRegisto.TOSSE));
+        registo.setFadiga(values.getAsInteger(BDTabelaRegisto.FADIGA));
 
 
         return registo;
@@ -75,8 +75,8 @@ public class Converte {
         registo.setId(cursor.getLong(cursor.getColumnIndex(BDTabelaRegisto._ID)));
         registo.setData(cursor.getString(cursor.getColumnIndex(BDTabelaRegisto.DATA)));
         registo.setTemperatura(cursor.getFloat(cursor.getColumnIndex(String.valueOf(BDTabelaRegisto.TEMPERATURA))));
-        registo.setTosse(cursor.isNull(cursor.getColumnIndex(BDTabelaRegisto.TOSSE)));
-        registo.setFadiga(cursor.isNull(cursor.getColumnIndex(BDTabelaRegisto.FADIGA)));
+        registo.setTosse(cursor.getInt(cursor.getColumnIndex(BDTabelaRegisto.TOSSE)));
+        registo.setFadiga(cursor.getInt(cursor.getColumnIndex(BDTabelaRegisto.FADIGA)));
 
         return registo;
     }

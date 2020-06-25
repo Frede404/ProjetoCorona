@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     private Menu menu;
     PerfilPessoa perfil = null;
 
+    public PerfilPessoa getPerfil(){
+        return perfil;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

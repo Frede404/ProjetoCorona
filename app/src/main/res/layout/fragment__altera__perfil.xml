@@ -26,7 +26,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Nome a alterar"
+        android:text="@string/Textonome_a_alterar"
         app:layout_constraintBottom_toTopOf="@+id/TV_data_antiga"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,7 +41,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Data a alterar"
+        android:text="@string/Textodata_a_alterar"
         app:layout_constraintBottom_toTopOf="@+id/TIL_altera_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TIL_altera_nome"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -69,7 +69,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TIL_altera_data"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -143,7 +143,7 @@
                 android:text="@string/Textohipertencao" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/CB_altera_oncologicos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Textooncologicos" />
@@ -155,13 +155,13 @@
             android:gravity="center">
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/CB_altera_cardiovascular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Textocardiovascular" />
 
             <CheckBox
-                android:id="@+id/checkBox6"
+                android:id="@+id/CB_altera_sistema_imunitario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Textosis_imunitario" />

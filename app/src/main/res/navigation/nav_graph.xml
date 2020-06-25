@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_Perfil_to_Informacoes"
             app:destination="@id/fragment_Informacoes" />
+        <action
+            android:id="@+id/action_Perfil_self"
+            app:destination="@id/fragment_Perfil" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Novo_perfil"

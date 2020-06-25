@@ -32,6 +32,8 @@ public class BDTabelaPerfis implements BaseColumns {
     public static final String PONCOLOGICOS_COMPLETO = NOME_TABELA + "." + PONCOLOGICOS;
     public static final String SIS_EMUNITARIO_COMPLETO = NOME_TABELA + "." + SIS_EMUNITARIO;
 
+    public static final String[] TODOS_CAMPOS ={ID_COMPLETO, NOME_COMPLETO, DATA_NASC_COMPLETO, CARDIOVASCULAR_COMPLETO, DIABETES_COMPLETO, PRESPIRATORIOS_COMPLETO, HIPERTENSAO_COMPLETO, PONCOLOGICOS_COMPLETO, SIS_EMUNITARIO_COMPLETO};
+
     public BDTabelaPerfis(SQLiteDatabase db){
         this.db = db;
     }
@@ -41,12 +43,12 @@ public class BDTabelaPerfis implements BaseColumns {
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NOME + " TEXT NOT NULL, " +
                 DATA_NASC + " TEXT NOT NULL, " +
-                CARDIOVASCULAR + " BOOLEAN NOT NULL, " +
-                DIABETES + " BOOLEAN NOT NULL, " +
-                PRESPIRATORIOS + " BOOLEAN NOT NULL, " +
-                HIPERTENSAO + " BOOLEAN NOT NULL, " +
-                PONCOLOGICOS + " BOOLEAN NOT NULL, " +
-                SIS_EMUNITARIO + " BOOLEAN NOT NULL " + ")"
+                CARDIOVASCULAR + " INTEGER NOT NULL, " +
+                DIABETES + " INTEGER NOT NULL, " +
+                PRESPIRATORIOS + " INTEGER NOT NULL, " +
+                HIPERTENSAO + " INTEGER NOT NULL, " +
+                PONCOLOGICOS + " INTEGER NOT NULL, " +
+                SIS_EMUNITARIO + " INTEGER NOT NULL " + ")"
                 );
     }
 
@@ -57,34 +59,7 @@ public class BDTabelaPerfis implements BaseColumns {
     public Cursor query(String[] columns, String selection,
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
-
-        if (!Arrays.asList(columns).contains(NOME_COMPLETO)) {
-            return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
-        }
-
-        String campos = TextUtils.join(",", columns);
-
-        String sql = "SELECT " + campos;
-        //sql += " FROM " + NOME_TABELA + " INNER JOIN " + BdTableCategorias.NOME_TABELA;
-        //sql += " ON " + CAMPO_ID_CATEGORIA_COMPLETO + "=" + BdTableCategorias.CAMPO_ID_COMPLETO;
-
-        if (selection != null) {
-            sql += " WHERE " + selection;
-        }
-
-        if (groupBy != null) {
-            sql += " GROUP BY " + groupBy;
-
-            if (having != null) {
-                sql += " HAVING " + having;
-            }
-        }
-
-        if (orderBy != null) {
-            sql += " ORDER BY " + orderBy;
-        }
-
-        return db.rawQuery(sql, selectionArgs);
+        return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
     }
 
     public int update(ContentValues values, String whereClause, String[] whereArgs) {

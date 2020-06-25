@@ -23,7 +23,7 @@
         android:id="@+id/B_registo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TextBregisto_diario"
+        android:text="@string/TextoBregisto_diario"
         app:layout_constraintBottom_toTopOf="@+id/B_historico_registo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -33,8 +33,8 @@ public class BDTabelaRegisto implements BaseColumns{
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DATA + " TEXT NOT NULL, " +
                 TEMPERATURA + " REAL NOT NULL, " +
-                TOSSE + " BOOLEAN NOT NULL, " +
-                FADIGA + " BOOLEAN NOT NULL " + ")"
+                TOSSE + " INTEGER NOT NULL, " +
+                FADIGA + " INTEGER NOT NULL " + ")"
         );
     }
 
@@ -45,35 +45,9 @@ public class BDTabelaRegisto implements BaseColumns{
     public Cursor query(String[] columns, String selection,
                         String[] selectionArgs, String groupBy, String having,
                         String orderBy) {
-
-        if (!Arrays.asList(columns).contains(DATA_COMPLETO)) {
-            return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
-        }
-
-        String campos = TextUtils.join(",", columns);
-
-        String sql = "SELECT " + campos;
-        //sql += " FROM " + NOME_TABELA + " INNER JOIN " + BdTableCategorias.NOME_TABELA;
-        //sql += " ON " + CAMPO_ID_CATEGORIA_COMPLETO + "=" + BdTableCategorias.CAMPO_ID_COMPLETO;
-
-        if (selection != null) {
-            sql += " WHERE " + selection;
-        }
-
-        if (groupBy != null) {
-            sql += " GROUP BY " + groupBy;
-
-            if (having != null) {
-                sql += " HAVING " + having;
-            }
-        }
-
-        if (orderBy != null) {
-            sql += " ORDER BY " + orderBy;
-        }
-
-        return db.rawQuery(sql, selectionArgs);
+        return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
     }
+
 
     public int update(ContentValues values, String whereClause, String[] whereArgs) {
         return db.update(NOME_TABELA, values, whereClause, whereArgs);

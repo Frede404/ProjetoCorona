@@ -4,16 +4,8 @@ public class Registos {
     private long id;
     private String data;
     private float temperatura;
-    private boolean tosse;
-    private boolean fadiga;
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
+    private int tosse;
+    private int fadiga;
 
     public long getId() {
         return id;
@@ -21,6 +13,14 @@ public class Registos {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public float getTemperatura() {
@@ -31,19 +31,35 @@ public class Registos {
         this.temperatura = temperatura;
     }
 
-    public boolean isTosse() {
+    public int getTosse() {
         return tosse;
     }
 
-    public void setTosse(boolean tosse) {
+    public boolean isTosse() {
+        return converteintregisto(tosse);
+    }
+
+    public void setTosse(int tosse) {
         this.tosse = tosse;
     }
 
-    public boolean isFadiga() {
+    public int getFadiga() {
         return fadiga;
     }
 
-    public void setFadiga(boolean fadiga) {
+    public boolean isFadiga() {
+        return converteintregisto(fadiga);
+    }
+
+    public void setFadiga(int fadiga) {
         this.fadiga = fadiga;
+    }
+
+    private boolean converteintregisto(int conversor){
+        if(conversor == 1){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
