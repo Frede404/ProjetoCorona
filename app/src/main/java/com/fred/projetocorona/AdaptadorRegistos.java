@@ -60,8 +60,7 @@ public class AdaptadorRegistos extends RecyclerView.Adapter<AdaptadorRegistos.Vi
 
         private final TextView textViewItemRegistoDataRegisto;
         private final TextView textViewItemRegistoTemperatura;
-        private final TextView textViewItemRegistoTosse;
-        private final TextView textViewItemRegistoFadiga;
+        private final TextView textViewItemRegistoProblemas;
 
 
         public ViewHolderRegisto(@NonNull View itemView) {
@@ -69,21 +68,24 @@ public class AdaptadorRegistos extends RecyclerView.Adapter<AdaptadorRegistos.Vi
 
             textViewItemRegistoDataRegisto = (TextView)itemView.findViewById(R.id.TV_Item_Registo_data);
             textViewItemRegistoTemperatura = (TextView)itemView.findViewById(R.id.TV_Item_Registo_Temperatura);
-            textViewItemRegistoTosse = (TextView)itemView.findViewById(R.id.TV_Item_Registo_Tosse);
-            textViewItemRegistoFadiga = (TextView)itemView.findViewById(R.id.TV_Item_Registo_Fadiga);
+            textViewItemRegistoProblemas = (TextView)itemView.findViewById(R.id.TV_Item_Registo_Problemas);
         }
 
         public void setRegisto(Registos registo) {
             this.registo = registo;
             textViewItemRegistoDataRegisto.setText(registo.getData());
             textViewItemRegistoTemperatura.setText(""+registo.getTemperatura());
-            if(registo.isTosse()){
-                textViewItemRegistoTosse.setText("tosse");
+            if(registo.isTosse() && registo.isFadiga()){
+                textViewItemRegistoProblemas.setText("tosse e fadiga");
+            }else if(registo.getTosse() != registo.getFadiga()){
+                if(registo.isTosse()){
+                    textViewItemRegistoProblemas.setText("tosse");
+                }else{
+                    textViewItemRegistoProblemas.setText("fadiga");
+                }
+            }else{
+                textViewItemRegistoProblemas.setVisibility(View.GONE);
             }
-            if(registo.isFadiga()){
-                textViewItemRegistoFadiga.setText("fadiga");
-            }
-
         }
     }
 }

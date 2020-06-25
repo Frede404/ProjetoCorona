@@ -52,4 +52,5 @@
     <string name="Textodata_a_alterar">Data a alterar</string>
     <string name="Textoalterarsucesso">Alterado Com sucesso</string>
     <string name="Textoerroalterar">Erro a alterar</string>
+    <string name="Textoselecioneperfil">selecione um perfil</string>
 </resources>

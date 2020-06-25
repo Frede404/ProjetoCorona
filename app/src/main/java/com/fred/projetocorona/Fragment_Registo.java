@@ -10,8 +10,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Fragment_Registo extends Fragment {
+    private String dataatual;
+    private TextView TV_data_actual;
+    private EditText TIET_temperatura;
+    private CheckBox CB_tosse;
+    private CheckBox CB_dif_respirar;
+    private MainActivity activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,13 +39,42 @@ public class Fragment_Registo extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        MainActivity activity = (MainActivity) getActivity();
+        activity = (MainActivity) getActivity();
         activity.setFragmentActual(this);
         activity.setMenuActual(R.menu.menu_registo);
+
+        dataatual = activity.getData();
+
+        TV_data_actual = view.findViewById(R.id.TV_data_actual);
+        TV_data_actual.setText(dataatual);
+        TIET_temperatura = view.findViewById(R.id.TIET_temperatura);
+        CB_tosse = view.findViewById(R.id.CB_tosse);
+        CB_dif_respirar = view.findViewById(R.id.CB_dif_respirar);
     }
 
     public void Guardar(){
-        Cancelar();
+        try {
+            float temperatura = Float.parseFloat(TIET_temperatura.getText().toString());
+            boolean tosse = CB_tosse.isChecked();
+            boolean fadiga = CB_dif_respirar.isChecked();
+            long id_perfil = activity.getPerfil().getId();
+
+            Registos registo = new Registos();
+            registo.setData(dataatual);
+            registo.setTemperatura(temperatura);
+            registo.setTosse(converteboolean(tosse));
+            registo.setFadiga(converteboolean(fadiga));
+            registo.setIdPerfil(id_perfil);
+
+            try{
+                getActivity().getContentResolver().insert(BDContentProvider.ENDERECO_REGISTOS, Converte.registoParaContentValues(registo));
+                Toast.makeText(getContext(),R.string.Textoadicionadosucesso, Toast.LENGTH_SHORT).show();
+                Cancelar();
+            }catch (Exception e){
+                Toast.makeText(getContext(),R.string.Textofalhaadicao, Toast.LENGTH_SHORT).show();
+            }
+        }catch(Exception e){
+        }
     }
 
     public void Cancelar(){
@@ -46,5 +85,16 @@ public class Fragment_Registo extends Fragment {
     public void Home(){
         NavController navController = NavHostFragment.findNavController(Fragment_Registo.this);
         navController.navigate(R.id.action_Registo_to_Perfil);
+    }
+
+    private int converteboolean(boolean auxboolean){
+        if(auxboolean)
+        {
+            return 1;
+        }else
+
+        {
+            return 0;
+        }
     }
 }

@@ -15,6 +15,7 @@ public class BDTabelaRegisto implements BaseColumns{
     public static final String TEMPERATURA = "temperatura";
     public static final String TOSSE = "tosse";
     public static final String FADIGA = "fadiga";
+    public static final String FK_ID_PERFIL = "id_perfil";
 
     private SQLiteDatabase db;
 
@@ -23,6 +24,8 @@ public class BDTabelaRegisto implements BaseColumns{
     public static final String TEMPERATURA_COMPLETO = NOME_TABELA + "." + TEMPERATURA;
     public static final String TOSSE_COMPLETO = NOME_TABELA + "." + TOSSE;
     public static final String FADIGA_COMPLETO = NOME_TABELA + "." + FADIGA;
+    public static final String FK_ID_PERFIL_COMPLETO = NOME_TABELA + "." + FK_ID_PERFIL;
+    public static final String[] TODOS_OS_CAMPOS_REGISTO = {ID_COMPLETO, DATA_COMPLETO, TEMPERATURA_COMPLETO, TOSSE_COMPLETO, FADIGA_COMPLETO, FK_ID_PERFIL_COMPLETO};
 
     public BDTabelaRegisto(SQLiteDatabase db){
         this.db = db;
@@ -34,7 +37,10 @@ public class BDTabelaRegisto implements BaseColumns{
                 DATA + " TEXT NOT NULL, " +
                 TEMPERATURA + " REAL NOT NULL, " +
                 TOSSE + " INTEGER NOT NULL, " +
-                FADIGA + " INTEGER NOT NULL " + ")"
+                FADIGA + " INTEGER NOT NULL, " +
+                FK_ID_PERFIL + " INTEGER NOT NULL," +
+                " FOREIGN KEY(" + FK_ID_PERFIL + ") REFERENCES " +
+                BDTabelaPerfis.NOME_TABELA +"("+ BDTabelaPerfis._ID + ")" +")"
         );
     }
 

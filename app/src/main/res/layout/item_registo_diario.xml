@@ -30,13 +30,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TV_Item_Registo_Tosse"
+        app:layout_constraintBottom_toTopOf="@+id/TV_Item_Registo_Problemas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TV_Item_Registo_data" />
 
     <TextView
-        android:id="@+id/TV_Item_Registo_Tosse"
+        android:id="@+id/TV_Item_Registo_Problemas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -45,25 +45,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TV_Item_Registo_Fadiga"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TV_Item_Registo_Temperatura" />
-
-    <TextView
-        android:id="@+id/TV_Item_Registo_Fadiga"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Item_Registo_Tosse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

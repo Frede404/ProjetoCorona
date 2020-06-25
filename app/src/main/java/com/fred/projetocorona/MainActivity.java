@@ -7,15 +7,27 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     private Fragment fragmentActual = null;
     private int menuActual = R.menu.menu_main;
     private Menu menu;
     PerfilPessoa perfil = null;
+    private String dataatual;
 
     public PerfilPessoa getPerfil(){
         return perfil;
+    }
+
+    public String getData(){
+        final Calendar calendario = Calendar.getInstance();
+        int ano = calendario.get(Calendar.YEAR);
+        int mes = calendario.get(Calendar.MONTH);
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+        dataatual = dia + "/" + mes + "/" + ano;
+        return dataatual;
     }
 
     @Override

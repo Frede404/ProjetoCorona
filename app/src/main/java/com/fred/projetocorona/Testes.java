@@ -5,6 +5,7 @@ public class Testes {
     private String data_teste;
     private String data_resultado;
     private String resultado;
+    private long idPerfil;
 
     public long getId() {
         return id;
@@ -37,4 +38,13 @@ public class Testes {
     public void setResultado(String resultado) {
         this.resultado = resultado;
     }
+
+    public long getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(long idPerfil) {
+        this.idPerfil = idPerfil;
+    }
+
 }

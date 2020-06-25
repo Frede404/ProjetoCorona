@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -43,6 +42,7 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
         Context context = getContext();
 
         activity = (MainActivity) getActivity();
@@ -64,14 +64,18 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
         adaptadorperfil.setCursor(null);
 
         LoaderManager.getInstance(this).initLoader(_CURSOR_LOADER_PERFIS, null, this);//gestao dos items (scroll);
-
     }
 
     private void Informacao() {
-        NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
-        navController.navigate(R.id.action_Perfil_to_Informacoes);
+        try {
+            if (activity.getPerfil().getId() >= 0) {
+                NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
+                navController.navigate(R.id.action_Perfil_to_Informacoes);
+            }
+        }catch (Exception e){
+            Toast.makeText(getContext(), R.string.Textoselecioneperfil, Toast.LENGTH_SHORT).show();
+        }
     }
-
 
     public void Voltar(){
         NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);

@@ -6,6 +6,7 @@ public class Registos {
     private float temperatura;
     private int tosse;
     private int fadiga;
+    private long idPerfil;
 
     public long getId() {
         return id;
@@ -53,6 +54,14 @@ public class Registos {
 
     public void setFadiga(int fadiga) {
         this.fadiga = fadiga;
+    }
+
+    public long getIdPerfil() {
+        return idPerfil;
+    }
+
+    public void setIdPerfil(long idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     private boolean converteintregisto(int conversor){
