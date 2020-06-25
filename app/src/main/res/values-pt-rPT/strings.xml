@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ProjetoCorona</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="TextoBperfis">Perfis</string>
     <string name="TextoBestatisticas">Estatisticas</string>
     <string name="TextoBsair">Sair</string>
