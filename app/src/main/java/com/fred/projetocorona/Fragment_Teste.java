@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Fragment_Teste extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+    public static final int _CURSOR_LOADER_TESTES = 0;
+    private AdaptadorUltimoTeste adaptadorUltimoTeste;
     private long idperfil;
 
     @Override
@@ -47,6 +49,15 @@ public class Fragment_Teste extends Fragment implements LoaderManager.LoaderCall
                 HistoricoTestes();
             }
         });
+
+        RecyclerView recyclerViewPerfis = (RecyclerView) view.findViewById(R.id.RV_ultimo_testes);
+        adaptadorUltimoTeste = new AdaptadorUltimoTeste(context);
+
+        recyclerViewPerfis.setAdapter(adaptadorUltimoTeste);
+        recyclerViewPerfis.setLayoutManager(new LinearLayoutManager(context));
+        adaptadorUltimoTeste.setCursor(null);
+
+        LoaderManager.getInstance(this).initLoader(_CURSOR_LOADER_TESTES, null, this);//gestao dos items (scroll);
     }
 
     private void HistoricoTestes() {
@@ -77,11 +88,12 @@ public class Fragment_Teste extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-
+        data.moveToLast();
+        adaptadorUltimoTeste.setCursor(data);
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-
+        adaptadorUltimoTeste.setCursor(null);
     }
 }

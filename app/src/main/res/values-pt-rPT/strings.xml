@@ -56,4 +56,11 @@
     <string name="TextoInsereSucesso">Inseriu com Sucesso</string>
     <string name="TextoErroInserir">Erro a Inserir</string>
     <string name="TemperaturaInvalida">Temperatura Invalida</string>
+    <string name="TextoInsiradatavalida">Insira uma data válida</string>
+    <string name="TextoInsiraData">Insira uma data</string>
+    <string name="TextoSelecionresultado">Selecione um resultado</string>
+    <string name="TextoPessoasRegistadas">Pessoas Registadas</string>
+    <string name="Textodoentescronicos">Doentes Cronicos</string>
+    <string name="TextoNtestesRealizados">Nº de Testes Realizados</string>
+    <string name="Textotestespositivos">Testes Positivos</string>
 </resources>

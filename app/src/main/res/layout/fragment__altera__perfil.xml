@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/TextoTituloaltera_perfil"
+        android:textColor="@color/colorTitulo"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/TV_Nome_antigo"
         app:layout_constraintEnd_toEndOf="parent"

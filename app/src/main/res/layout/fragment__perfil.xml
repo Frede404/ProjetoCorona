@@ -13,6 +13,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/TextoTituloperfis"
+        android:textColor="@color/colorTitulo"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/RV_Perfis"
         app:layout_constraintEnd_toEndOf="parent"

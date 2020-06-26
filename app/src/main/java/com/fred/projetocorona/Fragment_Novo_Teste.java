@@ -57,15 +57,23 @@ public class Fragment_Novo_Teste extends Fragment {
         int aux = spinner.getSelectedItemPosition();
 
         if (data_teste.length() == 0) {//validacoes
-            TIET_data_teste.setError("Insira uma data");
+            TIET_data_teste.setError(getString(R.string.TextoInsiraData));
             TIET_data_teste.requestFocus();
             return;
         } else if (data_resultado.length() == 0) {
-            TIET_data_resultado.setError("Insira uma data");
+            TIET_data_resultado.setError(getString(R.string.TextoInsiraData));
             TIET_data_resultado.requestFocus();
             return;
         }else if(aux == 0){
-            Toast.makeText(getContext(), "Selecione um resultado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.TextoSelecionresultado, Toast.LENGTH_SHORT).show();
+            return;
+        }else if(!activity.vericaData(data_teste)){
+            TIET_data_teste.setError(getString(R.string.TextoInsiradatavalida));
+            TIET_data_teste.requestFocus();
+            return;
+        }else if(!activity.vericaData(data_resultado)){
+            TIET_data_resultado.setError(getString(R.string.TextoInsiradatavalida));
+            TIET_data_resultado.requestFocus();
             return;
         }
 

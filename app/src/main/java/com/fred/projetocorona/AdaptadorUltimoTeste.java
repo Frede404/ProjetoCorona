@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdaptadorTestes extends RecyclerView.Adapter<AdaptadorTestes.ViewHolderTeste> {
+public class AdaptadorUltimoTeste extends RecyclerView.Adapter<AdaptadorUltimoTeste.ViewHolderTeste>{
     private final Context context;
 
     private Cursor cursor;
@@ -22,20 +22,20 @@ public class AdaptadorTestes extends RecyclerView.Adapter<AdaptadorTestes.ViewHo
         }
     }
 
-    public AdaptadorTestes(Context context) {
+    public AdaptadorUltimoTeste(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
-    public AdaptadorTestes.ViewHolderTeste onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdaptadorUltimoTeste.ViewHolderTeste onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemTeste = LayoutInflater.from(context).inflate(R.layout.item_testes, parent, false);
 
-        return new ViewHolderTeste(itemTeste);
+        return new AdaptadorUltimoTeste.ViewHolderTeste(itemTeste);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderTeste holder, int position) {
+    public void onBindViewHolder(@NonNull AdaptadorUltimoTeste.ViewHolderTeste holder, int position) {
         cursor.moveToPosition(position);
         Testes teste = Converte.cursorParaTeste(cursor);
         holder.setTeste(teste);
@@ -46,7 +46,11 @@ public class AdaptadorTestes extends RecyclerView.Adapter<AdaptadorTestes.ViewHo
         if(cursor == null) {
             return 0;
         }
-        return cursor.getCount();
+        int conta = cursor.getCount();
+        if(conta > 0){
+            conta = 1;
+        }
+        return conta;
     }
 
     public class ViewHolderTeste extends RecyclerView.ViewHolder {

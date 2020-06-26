@@ -74,6 +74,10 @@ public class Fragment_Novo_perfil extends Fragment {
             nova_data.setError("Insira uma data");
             nova_data.requestFocus();
             return;
+        }else if(!activity.vericaData(data)){
+            nova_data.setError(getString(R.string.TextoInsiradatavalida));
+            nova_data.requestFocus();
+            return;
         }
 
         PerfilPessoa perfil = new PerfilPessoa();

@@ -17,6 +17,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center_horizontal"
         android:text="@string/TextoTituloestatisticas"
+        android:textColor="@color/colorTitulo"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/TV_pessoas_registadas"
         app:layout_constraintEnd_toEndOf="parent"

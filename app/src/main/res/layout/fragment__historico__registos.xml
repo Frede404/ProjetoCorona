@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/TextoTitulohistorico_de_registos"
+        android:textColor="@color/colorTitulo"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/RV_Historico_Registos"
         app:layout_constraintEnd_toEndOf="parent"

@@ -40,6 +40,28 @@ public class MainActivity extends AppCompatActivity {
         return dataatual;
     }
 
+    public boolean vericaData(String data_verificar){
+        boolean verificao = false;
+
+        data_verificar = data_verificar.trim();
+        if(data_verificar.length() > 10){
+            verificao = false;
+        }else{
+            data_verificar = data_verificar.replaceAll("/","");
+            if(data_verificar.length() > 8){
+                verificao = false;
+            }else{
+                try{
+                    int aux = Integer.parseInt(data_verificar);
+                    verificao = true;
+                }catch(Exception e){
+                    verificao = false;
+                }
+            }
+        }
+        return verificao;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
