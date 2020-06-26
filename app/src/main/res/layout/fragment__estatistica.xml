@@ -8,10 +8,14 @@
 
     <TextView
         android:id="@+id/Titulo_Estatistica"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
         android:text="@string/TextoTituloestatisticas"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/TV_pessoas_registadas"
@@ -21,48 +25,65 @@
 
     <TextView
         android:id="@+id/TV_pessoas_registadas"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
         android:text="Pessoas registadas:"
-        app:layout_constraintBottom_toTopOf="@+id/TV_dias_risco"
+        app:layout_constraintBottom_toTopOf="@+id/TV_doentes_cronicos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titulo_Estatistica" />
 
     <TextView
-        android:id="@+id/TV_dias_risco"
-        android:layout_width="wrap_content"
+        android:id="@+id/TV_doentes_cronicos"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Dias de Risco:"
-        app:layout_constraintBottom_toTopOf="@+id/TV_doentes_cronicos"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center_horizontal"
+        android:text="Doentes Cronicos:"
+        app:layout_constraintBottom_toTopOf="@+id/TV_n_testes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TV_pessoas_registadas" />
 
     <TextView
-        android:id="@+id/TV_doentes_cronicos"
-        android:layout_width="wrap_content"
+        android:id="@+id/TV_n_testes"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Doentes Cronicos:"
-        app:layout_constraintBottom_toTopOf="@+id/TV_n_testes"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center_horizontal"
+        android:text="nº testes:"
+        app:layout_constraintBottom_toTopOf="@+id/TV_n_testes_positivos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_dias_risco" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_doentes_cronicos" />
 
     <TextView
-        android:id="@+id/TV_n_testes"
-        android:layout_width="wrap_content"
+        android:id="@+id/TV_n_testes_positivos"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="nº testes:"
+        android:gravity="center_horizontal"
+        android:text="Dias de Risco:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_doentes_cronicos" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_n_testes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

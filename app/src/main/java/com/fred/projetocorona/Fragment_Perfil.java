@@ -26,7 +26,7 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
     public static final int _CURSOR_LOADER_PERFIS = 0;
     private AdaptadorPerfis adaptadorperfil;
     private PerfilPessoa perfil;
-    private MainActivity activity;
+    MainActivity activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        Context context = getContext();
+        Context context = getContext();//novo
 
         activity = (MainActivity) getActivity();
         activity.setFragmentActual(this);
@@ -73,7 +73,7 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
                 navController.navigate(R.id.action_Perfil_to_Informacoes);
             }
         }catch (Exception e){
-            Toast.makeText(getContext(), R.string.Textoselecioneperfil, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"selecione um perfil", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -93,47 +93,47 @@ public class Fragment_Perfil extends Fragment implements LoaderManager.LoaderCal
     }
 
     public void Eliminar(){
-        perfil= activity.getPerfil();
-
+        perfil = activity.getPerfil();
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        builder.setTitle(R.string.Textoeliminarperfildialog);
-        builder.setMessage("Tem a certeza que pretende elimar o perfil " + perfil.getNome() + "?");
+        builder.setTitle("Eliminar Perfil");
+        builder.setMessage("Tem a certeza que pretende eliminar o perfil '" + perfil.getNome() + "'");
         builder.setIcon(R.drawable.ic_baseline_delete_24);
-        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Sim",  new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                EliminaDefinitivamente();
+                EliminarDefinitivo();
             }
         });
         builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
             }
         });
         builder.show();
+        activity.PerfilAlterado(null);
     }
 
-    private void EliminaDefinitivamente(){
-        try {
+    private void EliminarDefinitivo() {
+        try{
             Uri enderecoPerfil = Uri.withAppendedPath(BDContentProvider.ENDERECO_PERFIS, String.valueOf(perfil.getId()));
+            int registosApagados = getActivity().getContentResolver().delete(enderecoPerfil, null, null);
 
-            int registoApagados = getActivity().getContentResolver().delete(enderecoPerfil, null, null);
-            if (registoApagados == 1) {
-                Toast.makeText(getContext(), R.string.Textoeliminadosucesso, Toast.LENGTH_SHORT).show();
+            if(registosApagados == 1){
+                Toast.makeText(getContext(),"Perfil eliminado com sucesso", Toast.LENGTH_SHORT).show();
                 NavController navController = NavHostFragment.findNavController(Fragment_Perfil.this);
                 navController.navigate(R.id.action_Perfil_self);
+                return;
             }
         }catch (Exception e){
-            Toast.makeText(getContext(), R.string.Textoerroeliminar, Toast.LENGTH_SHORT).show();
         }
+        Toast.makeText(getContext(),"Erro: Não foi possivél eliminar o perfil", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        return new androidx.loader.content.CursorLoader(getContext(),BDContentProvider.ENDERECO_PERFIS, BDTabelaPerfis.TODOS_CAMPOS, null, null, BDTabelaPerfis.NOME);
+        return new androidx.loader.content.CursorLoader(getContext(),BDContentProvider.ENDERECO_PERFIS, BDTabelaPerfis.TODOS_OS_CAMPOS_PERFIL, null, null, BDTabelaPerfis.NOME);
     }
 
     @Override

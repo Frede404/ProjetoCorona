@@ -18,18 +18,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Fragment_Altera_Perfil extends Fragment {
-    private TextView nome_antigo;
     private EditText altera_nome;
-    private TextView data_antiga;
+    private TextView nome_antigo;
     private EditText altera_data;
+    private TextView data_antiga;
     private CheckBox altera_cardiovascular;
     private CheckBox altera_diabetes;
-    private CheckBox altera_prespiratorios;
-    private CheckBox altera_hipertenso;
-    private CheckBox altera_poncologicos;
+    private CheckBox altera_prespiratorio;
+    private CheckBox altera_hipertensao;
+    private CheckBox altera_poncologico;
     private CheckBox altera_sisimunitario;
 
     private PerfilPessoa perfil;
+    private long id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,21 +59,22 @@ public class Fragment_Altera_Perfil extends Fragment {
         altera_data = view.findViewById(R.id.TIET_altera_data);
         altera_cardiovascular = view.findViewById(R.id.CB_altera_cardiovascular);
         altera_diabetes = view.findViewById(R.id.CB_altera_diabetes);
-        altera_prespiratorios = view.findViewById(R.id.CB_altera_respiratorio);
-        altera_hipertenso = view.findViewById(R.id.CB_altera_hipertensao);
-        altera_poncologicos = view.findViewById(R.id.CB_altera_oncologicos);
+        altera_prespiratorio = view.findViewById(R.id.CB_altera_respiratorio);
+        altera_hipertensao = view.findViewById(R.id.CB_altera_hipertensao);
+        altera_poncologico = view.findViewById(R.id.CB_altera_oncologicos);
         altera_sisimunitario = view.findViewById(R.id.CB_altera_sistema_imunitario);
 
         perfil = activity.getPerfil();
-        nome_antigo.setText(nome_antigo.getText().toString() + ": " + perfil.getNome());
+        id = perfil.getId();
         altera_nome.setText(perfil.getNome());
-        data_antiga.setText(data_antiga.getText().toString() + ": " + perfil.getDataNascimento());
+        nome_antigo.setText(nome_antigo.getText() + " " + perfil.getNome());
         altera_data.setText(perfil.getDataNascimento());
+        data_antiga.setText(data_antiga.getText() + " " + perfil.getDataNascimento());
         altera_cardiovascular.setChecked(perfil.getCardiovascular());
         altera_diabetes.setChecked(perfil.getDiabetes());
-        altera_prespiratorios.setChecked(perfil.getPRespiratorios());
-        altera_hipertenso.setChecked(perfil.getHipertenso());
-        altera_poncologicos.setChecked(perfil.getPOncologicos());
+        altera_prespiratorio.setChecked(perfil.getPRespiratorios());
+        altera_hipertensao.setChecked(perfil.getHipertenso());
+        altera_poncologico.setChecked(perfil.getPOncologicos());
         altera_sisimunitario.setChecked(perfil.getSisEmunitario());
     }
 
@@ -81,39 +83,44 @@ public class Fragment_Altera_Perfil extends Fragment {
         String data = altera_data.getText().toString();
         boolean cardiovascular = altera_cardiovascular.isChecked();
         boolean diabetes = altera_diabetes.isChecked();
-        boolean prespiratorios = altera_prespiratorios.isChecked();
-        boolean hipertensao = altera_hipertenso.isChecked();
-        boolean poncologicos = altera_poncologicos.isChecked();
+        boolean prespiratorio = altera_prespiratorio.isChecked();
+        boolean hipertensao = altera_hipertensao.isChecked();
+        boolean poncologicos = altera_poncologico.isChecked();
         boolean sisimunitario = altera_sisimunitario.isChecked();
 
-        if(nome.length() == 0){
-            altera_nome.setError(getString(R.string.Textoinserirnome));
+        if (nome.length() == 0) {//validacoes
+            altera_nome.setError("Insira um nome");
             altera_nome.requestFocus();
-        }else if(data.length() == 0){
-            altera_data.setError(getString(R.string.Textodataerrada));
+            return;
+        } else if (data.length() == 0) {
+            altera_data.setError("Insira uma data");
             altera_data.requestFocus();
+            return;
         }
 
         perfil.setNome(nome);
         perfil.setDataNascimento(data);
-        perfil.setCardiovascular(converetebooleanalteraperfil(cardiovascular));
-        perfil.setDiabetes(converetebooleanalteraperfil(diabetes));
-        perfil.setPRespiratorios(converetebooleanalteraperfil(prespiratorios));
-        perfil.setHipertenso(converetebooleanalteraperfil(hipertensao));
-        perfil.setPOncologicos(converetebooleanalteraperfil(poncologicos));
-        perfil.setSisEmunitario(converetebooleanalteraperfil(sisimunitario));
+        perfil.setCardiovascular(converteboolean(cardiovascular));
+        perfil.setDiabetes(converteboolean(diabetes));
+        perfil.setPRespiratorios(converteboolean(prespiratorio));
+        perfil.setHipertenso(converteboolean(hipertensao));
+        perfil.setPOncologicos(converteboolean(poncologicos));
+        perfil.setSisEmunitario(converteboolean(sisimunitario));
 
         try {
             Uri enderecoPerfil = Uri.withAppendedPath(BDContentProvider.ENDERECO_PERFIS, String.valueOf(perfil.getId()));
 
-            int registoApagados = getActivity().getContentResolver().update(enderecoPerfil, Converte.PerfilToContentValues(perfil), null, null);
-            if (registoApagados == 1) {
-                Toast.makeText(getContext(), R.string.Textoalterarsucesso, Toast.LENGTH_SHORT).show();
+            int registos = getActivity().getContentResolver().update(enderecoPerfil, Converte.PerfilToContentValues(perfil), null,null);
+            if(registos == 1){
+                Toast.makeText(getContext(),"Perfil alterado com sucesso", Toast.LENGTH_SHORT).show();
                 Cancelar();
+                return;
             }
-        }catch (Exception e){
-            Toast.makeText(getContext(), R.string.Textoerroalterar, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+
         }
+        Toast.makeText(getContext(),"Perfil alterado com sucesso", Toast.LENGTH_SHORT).show();
+
     }
 
     public void Cancelar(){
@@ -121,10 +128,13 @@ public class Fragment_Altera_Perfil extends Fragment {
         navController.navigate(R.id.action_Altera_Perfil_to_Perfil);
     }
 
-    private int converetebooleanalteraperfil(boolean conversor){
-        if(conversor){
+    private int converteboolean(boolean auxboolean){
+        if(auxboolean)
+        {
             return 1;
-        }else{
+        }else
+
+        {
             return 0;
         }
     }

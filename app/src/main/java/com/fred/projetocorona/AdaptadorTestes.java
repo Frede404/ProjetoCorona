@@ -59,14 +59,13 @@ public class AdaptadorTestes extends RecyclerView.Adapter<AdaptadorTestes.ViewHo
             super(itemView);
 
             textViewItemTesteDataTeste = (TextView)itemView.findViewById(R.id.TV_Item_Teste_Data_Realizado);
-            textViewItemTesteResultado = (TextView)itemView.findViewById(R.id.TV_Item_Testes_Resultdo);
+            textViewItemTesteResultado = (TextView)itemView.findViewById(R.id.TV_Item_Teste_Resultdo);
         }
 
         public void setTeste(Testes teste) {
             this.teste = teste;
             textViewItemTesteDataTeste.setText(teste.getData_teste());
             textViewItemTesteResultado.setText(teste.getResultado());
-
         }
     }
 }

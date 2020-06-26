@@ -68,12 +68,14 @@ public class Fragment_Registo extends Fragment {
 
             try{
                 getActivity().getContentResolver().insert(BDContentProvider.ENDERECO_REGISTOS, Converte.registoParaContentValues(registo));
-                Toast.makeText(getContext(),R.string.Textoadicionadosucesso, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.Textoadicionadosucesso, Toast.LENGTH_SHORT).show();
                 Cancelar();
             }catch (Exception e){
                 Toast.makeText(getContext(),R.string.Textofalhaadicao, Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){
+            TIET_temperatura.setError(getString(R.string.TemperaturaInvalida));
+            TIET_temperatura.requestFocus();
         }
     }
 

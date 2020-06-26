@@ -11,12 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Fragment_Novo_Teste extends Fragment {
-
     private Spinner spinner;
-    private String[] test = {"Positivo","Negativo","Inconclusivo"};
+    private String[] test = {"","Positivo","Negativo","Inconclusivo"};
+
+    private EditText TIET_data_teste;
+    private EditText TIET_data_resultado;
+    MainActivity activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,13 +43,48 @@ public class Fragment_Novo_Teste extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        MainActivity activity = (MainActivity) getActivity();
+        activity = (MainActivity) getActivity();
         activity.setFragmentActual(this);
         activity.setMenuActual(R.menu.menu_novo_teste);
+
+        TIET_data_teste=view.findViewById(R.id.TIET_data_teste);
+        TIET_data_resultado=view.findViewById(R.id.TIET_data_resultado);
     }
 
     public void Guardar(){
-        Cancelar();
+        String data_teste = TIET_data_teste.getText().toString();
+        String data_resultado = TIET_data_resultado.getText().toString();
+        int aux = spinner.getSelectedItemPosition();
+
+        if (data_teste.length() == 0) {//validacoes
+            TIET_data_teste.setError("Insira uma data");
+            TIET_data_teste.requestFocus();
+            return;
+        } else if (data_resultado.length() == 0) {
+            TIET_data_resultado.setError("Insira uma data");
+            TIET_data_resultado.requestFocus();
+            return;
+        }else if(aux == 0){
+            Toast.makeText(getContext(), "Selecione um resultado", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String spiner_resultado = spinner.getSelectedItem().toString();
+        long id_perfil = activity.getPerfil().getId();
+
+        Testes teste = new Testes();
+        teste.setIdPerfil(id_perfil);
+        teste.setData_teste(data_teste);
+        teste.setData_resultado(data_resultado);
+        teste.setResultado(spiner_resultado);
+
+        try{
+            getActivity().getContentResolver().insert(BDContentProvider.ENDERECO_TESTES, Converte.testeParaContentValues(teste));
+            Toast.makeText(getContext(),R.string.TextoInsereSucesso, Toast.LENGTH_SHORT).show();
+            Cancelar();
+        }catch (Exception e){
+            Toast.makeText(getContext(),R.string.TextoErroInserir, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void Cancelar(){

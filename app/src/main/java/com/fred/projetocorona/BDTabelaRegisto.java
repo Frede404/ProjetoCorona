@@ -54,7 +54,6 @@ public class BDTabelaRegisto implements BaseColumns{
         return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy);
     }
 
-
     public int update(ContentValues values, String whereClause, String[] whereArgs) {
         return db.update(NOME_TABELA, values, whereClause, whereArgs);
     }

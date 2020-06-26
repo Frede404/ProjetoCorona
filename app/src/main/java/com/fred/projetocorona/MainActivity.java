@@ -10,23 +10,33 @@ import android.view.MenuItem;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-
     private Fragment fragmentActual = null;
     private int menuActual = R.menu.menu_main;
     private Menu menu;
-    PerfilPessoa perfil = null;
+    private PerfilPessoa perfil = null;
     private String dataatual;
 
-    public PerfilPessoa getPerfil(){
+    public PerfilPessoa getPerfil() {
         return perfil;
+    }
+
+    public void setPerfil(PerfilPessoa perfil){
+        this.perfil=perfil;
     }
 
     public String getData(){
         final Calendar calendario = Calendar.getInstance();
+
         int ano = calendario.get(Calendar.YEAR);
         int mes = calendario.get(Calendar.MONTH);
         int dia = calendario.get(Calendar.DAY_OF_MONTH);
-        dataatual = dia + "/" + mes + "/" + ano;
+        int hora = calendario.get(Calendar.HOUR_OF_DAY)+1;
+        if(hora>=24){
+            hora=0;
+            dia+=1;
+        }
+        int minutos = calendario.get(Calendar.MINUTE);
+        dataatual = dia + "/" + mes + "/" + ano + " " + hora + ":" + minutos;
         return dataatual;
     }
 
@@ -187,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             fragmento_destino.Cancelar();
             return true;
         }else
-        return false;
+            return false;
     }
 
     private boolean geraOpcoesMenuNovoTeste(int id) {

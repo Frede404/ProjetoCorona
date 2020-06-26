@@ -53,19 +53,23 @@ public class Converte {
 
     public static ContentValues registoParaContentValues(Registos registo){
         ContentValues values = new ContentValues();
+        values.put(BDTabelaRegisto.DATA, registo.getData());
         values.put(BDTabelaRegisto.TEMPERATURA, registo.getTemperatura());
         values.put(BDTabelaRegisto.TOSSE, registo.getTosse());
         values.put(BDTabelaRegisto.FADIGA, registo.getFadiga());
+        values.put(BDTabelaRegisto.FK_ID_PERFIL,registo.getIdPerfil());
+
         return values;
     }
     public static Registos contentValuesParaRegisto(ContentValues values){
         Registos registo = new Registos();
 
         registo.setId(values.getAsLong(BDTabelaRegisto._ID));
+        registo.setData(values.getAsString(BDTabelaRegisto.DATA));
         registo.setTemperatura(values.getAsFloat(BDTabelaRegisto.TEMPERATURA));
         registo.setTosse(values.getAsInteger(BDTabelaRegisto.TOSSE));
         registo.setFadiga(values.getAsInteger(BDTabelaRegisto.FADIGA));
-
+        registo.setIdPerfil(values.getAsLong(BDTabelaRegisto.FK_ID_PERFIL));
 
         return registo;
     }
@@ -74,9 +78,10 @@ public class Converte {
         Registos registo = new Registos();
         registo.setId(cursor.getLong(cursor.getColumnIndex(BDTabelaRegisto._ID)));
         registo.setData(cursor.getString(cursor.getColumnIndex(BDTabelaRegisto.DATA)));
-        registo.setTemperatura(cursor.getFloat(cursor.getColumnIndex(String.valueOf(BDTabelaRegisto.TEMPERATURA))));
+        registo.setTemperatura(cursor.getFloat(cursor.getColumnIndex(BDTabelaRegisto.TEMPERATURA)));
         registo.setTosse(cursor.getInt(cursor.getColumnIndex(BDTabelaRegisto.TOSSE)));
         registo.setFadiga(cursor.getInt(cursor.getColumnIndex(BDTabelaRegisto.FADIGA)));
+        registo.setIdPerfil(cursor.getLong(cursor.getColumnIndex(BDTabelaRegisto.FK_ID_PERFIL)));
 
         return registo;
     }
@@ -87,6 +92,7 @@ public class Converte {
         values.put(BDTabelaTestes.DATA_TESTE, teste.getData_teste());
         values.put(BDTabelaTestes.DATA_RESULTADO, teste.getResultado());
         values.put(BDTabelaTestes.RESULTADO, teste.getResultado());
+        values.put(BDTabelaTestes.FK_ID_PERFIL, teste.getIdPerfil());
 
         return values;
     }
@@ -96,6 +102,7 @@ public class Converte {
         teste.setData_teste(values.getAsString(BDTabelaTestes.DATA_TESTE));
         teste.setData_resultado(values.getAsString(BDTabelaTestes.DATA_RESULTADO));
         teste.setResultado(values.getAsString(BDTabelaTestes.RESULTADO));
+        teste.setIdPerfil(values.getAsLong(BDTabelaTestes.FK_ID_PERFIL));
 
         return teste;
     }
@@ -106,6 +113,7 @@ public class Converte {
         teste.setData_teste(cursor.getString(cursor.getColumnIndex(BDTabelaTestes.DATA_TESTE)));
         teste.setData_resultado(cursor.getString(cursor.getColumnIndex((BDTabelaTestes.DATA_RESULTADO))));
         teste.setResultado(cursor.getString(cursor.getColumnIndex(BDTabelaTestes.RESULTADO)));
+        teste.setIdPerfil(cursor.getLong(cursor.getColumnIndex(BDTabelaTestes.FK_ID_PERFIL)));
 
         return teste;
     }

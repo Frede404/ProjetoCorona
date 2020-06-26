@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 public class Fragment_Main extends Fragment {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,5 +72,4 @@ public class Fragment_Main extends Fragment {
         NavController navController = NavHostFragment.findNavController(Fragment_Main.this);
         navController.navigate(R.id.action_Main_to_About);
     }
-
 }

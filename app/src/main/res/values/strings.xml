@@ -53,4 +53,7 @@
     <string name="Textoalterarsucesso">Alterado Com sucesso</string>
     <string name="Textoerroalterar">Erro a alterar</string>
     <string name="Textoselecioneperfil">selecione um perfil</string>
+    <string name="TextoInsereSucesso">Inseriu com Sucesso</string>
+    <string name="TextoErroInserir">Erro a Inserir</string>
+    <string name="TemperaturaInvalida">Temperatura Invalida</string>
 </resources>
