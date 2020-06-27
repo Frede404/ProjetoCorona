@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private Fragment fragmentActual = null;
@@ -42,22 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean vericaData(String data_verificar){
         boolean verificao = false;
-
-        data_verificar = data_verificar.trim();
-        if(data_verificar.length() > 10){
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+            Date date = format.parse(data_verificar);
+            verificao = true;
+        } catch (Exception e) {
             verificao = false;
-        }else{
-            data_verificar = data_verificar.replaceAll("/","");
-            if(data_verificar.length() > 8){
-                verificao = false;
-            }else{
-                try{
-                    int aux = Integer.parseInt(data_verificar);
-                    verificao = true;
-                }catch(Exception e){
-                    verificao = false;
-                }
-            }
         }
         return verificao;
     }
