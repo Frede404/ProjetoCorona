@@ -47,7 +47,9 @@
             android:id="@+id/TIET_temperatura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Textotemperatura" />
+            android:hint="@string/Textotemperatura"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox

@@ -37,7 +37,8 @@
             android:id="@+id/TIET_novo_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Textonome" />
+            android:hint="@string/Textonome"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,7 +58,8 @@
             android:id="@+id/TIET_nova_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Textodata_nascimento" />
+            android:hint="@string/Textodata_nascimento"
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

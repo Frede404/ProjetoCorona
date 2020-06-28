@@ -35,7 +35,8 @@
             android:id="@+id/TIET_data_teste"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Textodata_do_teste" />
+            android:hint="@string/Textodata_do_teste"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +56,8 @@
             android:id="@+id/TIET_data_resultado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Textodata_do_resultado" />
+            android:hint="@string/Textodata_do_resultado"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
